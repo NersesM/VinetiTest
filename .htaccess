@@ -1,0 +1,13 @@
+Options +FollowSymLinks
+IndexIgnore */*
+RewriteEngine on
+
+# Redirect exmaple to example/api
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^(.*)$ /api/$1 [R=301]
+
+# if URI start with api/ redirect it to index.php
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^api/(.*)$ /index.php
